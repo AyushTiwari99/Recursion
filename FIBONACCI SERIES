@@ -1,0 +1,24 @@
+import java.util.Scanner;
+public class fibonacci
+{
+    int n1=0,n2=1,n3=0;
+    public void fib(int x)
+    {
+        if(x>0)
+        {
+            n3=n1+n2;
+            n1=n2;
+            n2=n3;
+            System.out.println(n3);
+            fib(x-1);
+        }
+    }
+    public static void main(String[] args) {
+        fibonacci obj = new fibonacci();
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        System.out.println(obj.n1);
+        System.out.println(obj.n2);
+        obj.fib(n-2);
+    }
+}
