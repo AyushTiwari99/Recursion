@@ -1,0 +1,29 @@
+import java.util.Scanner;
+
+public class Solution
+{
+    static int binarySearch(int[] arr,int start,int last, int Key) {
+
+        if(start <= last) {
+            int middleIndex = (start+last)/2;
+
+            if(arr[middleIndex] == Key)
+                return middleIndex;
+            else if(Key < arr[middleIndex])
+                return binarySearch(arr,start,middleIndex-1,Key);
+            else
+                return binarySearch(arr,middleIndex+1,last,Key);
+        }
+        return -1;
+    }
+    public static void main(String[] args) {
+        int arr[]=new int[5];
+        int key = 30;
+        //int arr[]={12,20,30,40,50};
+        Scanner s = new Scanner(System.in);
+        for (int i = 0; i <arr.length; i++) {
+            arr[i]=s.nextInt();
+        }
+        System.out.println(binarySearch(arr,0,arr.length-1,key));
+    }
+}
